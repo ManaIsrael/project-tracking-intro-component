@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Project tracking intro component</title>
+
+  <style>
+    :root {
+      --mobile-width: 375px;
+      --desktop-width: 1440px;
+      --primary-red: hsl(0, 100%, 68%);
+      --neutral-verydarkblue: hsl(230, 29%, 20%);
+      --neutral-darkgrayishblue: hsl(230, 11%, 40%);
+      --neutral-grayishblue: hsl(231, 7%, 65%);
+      --neutral-lightgrayishblue: hsl(207, 33%, 95%);
+      --fs-bodycopy: 18px;
+      --fw-normal: 400;
+      --fw-bold: 700;
+      --ff-barlowcondensed: 'Barlow Condensed';/* headings, call-to-actions, navigation */
+      --ff-barlow: 'Barlow'; /* body */
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: linear-gradient(to right, #ffffff 50%, var(--neutral-lightgrayishblue) 50%);    
+      width: 100vw;
+      overflow-x: clip;
+      font-family: var(--ff-barlow), sans-serif;
+      font-weight: var(--fw-normal);
+    }
+
+    /* headings, call-to-action, navigation */
+    h1, .second input, .call-to-action input {
+      font-family: var(--ff-barlowcondensed), sans-serif;
+      font-weight: var(--fw-bold);
+    }
+    /* Paragraphs */
+    p {
+      color: var(--neutral-darkgrayishblue);
+    }
+    /* the span near the call-to-action */
+    .call-to-action span {
+      color: var(--neutral-grayishblue);
+    }
+
+/* HEADER */
+  header {
+    margin-top: 3em;
+  }
+/* THE NAV */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      margin-right: 10em;
+
+    }
+    .nav-links a {
+      color: var(--neutral-verydarkblue);
+      text-decoration: none;
+    }
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
+    .first {
+      display: flex;
+      margin-right: 1em;
+      width: 20em;
+      justify-content: space-between;
+    }
+    .first li {
+      list-style: none;
+    }
+    .second li, .second input {
+      color: var(--neutral-grayishblue);
+      border: none;
+      margin-left: 1em;
+      cursor: pointer;
+      background: none;
+    }
+    .second input:hover {
+      box-shadow: 0 1px var(--neutral-grayishblue);
+    }
+
+/* MAIN */
+    main {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5em;
+    }
+    main > * {
+      width: 45%;
+    }
+    main, header {
+      margin-left: 10em;
+      max-width: calc(100% - 10em);
+    }
+    .image img {
+      width: 130%;
+    }
+
+    .info h1 {
+      color: var(--neutral-verydarkblue);
+      margin-bottom: 1em;
+    }
+    .info p {
+      margin-bottom: 2em;
+    }
+
+    .label {
+      padding: 1em 0;
+    }
+    /* MONOSPACE */
+    .label p {
+      font-family: monospace;
+    }
+
+    .label p {
+      letter-spacing: 5px;
+    }
+    .label span {
+      background-color: var(--neutral-verydarkblue);
+      color: white;
+      letter-spacing: 0;
+      padding: .5em 1em;
+      border-radius: 25px;
+    }
+
+    .one .call-to-action input {
+      background-color: var(--primary-red);
+      color: white;
+      padding: .5em 1em;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .call-to-action input:hover {
+      opacity: .8;
+    }
+
+    /* MONOSPACE */
+    .call-to-action span {
+      font-family: monospace;
+      letter-spacing: 5px;
+      margin-left: 1em;
+    }
+
+/* responsive */
+    @media(max-width: 600px) {
+
+      header, main {
+        margin-left: 0;
+        font-size: 12px;
+      }
+
+    }
+
+    /* MOBILE */
+    @media(max-width: 375px) {
+
+      span#js {
+        position: fixed;
+        top: 3em;
+        right: 2em;
+        width: 30px;
+        height: 25px;
+        transition: transform 250ms ease-in-out;
+      }
+      .nav-links {
+        background-color: white;
+        box-shadow: 1px 1px 10px black;
+
+        flex-direction: column;
+        align-items: center;
+        margin-left: 10%;
+        position: fixed;
+        top: calc(6em + 25px);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: translateX(100%);
+        width: 80%;
+        height: 15em;
+        padding: 2em 1em;
+        box-sizing: border-box;
+        transition: transform 250ms cubic-bezier(0.5 0 0.5 1);
+      }
+      .first {
+        border-bottom: 1px solid var(--neutral-grayishblue);
+      }
+      .nav-links .first, .nav-links .second {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-right: 0;
+      }
+      .second input {
+        display: inline-block;
+        margin-left: 40%;
+      }
+      .second li {
+        width: 100%;
+        list-style: none;
+        margin-top: 1em;
+      }
+      .first li {
+        margin-bottom: 2em;
+      }
+
+      /* for js purpose */
+      .nav-open .nav-links {
+        transform: translateX(0%);
+      }
+
+      main {
+        flex-direction: column-reverse;
+      }
+      main, header {
+        max-width: 100%;
+      }
+      main > * {
+        width: 100%;
+      }
+      .one {
+        padding-left: 2em;
+        margin-top: 5em;
+      }
+    }
+
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+  <header>
+
+    <nav>
+      <div class="logo">
+        <picture>
+          <img alt="" src="./images/logo.svg" />
+        </picture>
+      </div>
+      <div class="nav-links">
+        <ul class="first">
+          <li><a href="#">PRODUCT</a></li>
+          <li><a href="#">FEATURES</a></li>
+          <li><a href="#">PRICING</a></li>
+        </ul>
+        <ul class="second">
+          <li><input type="submit" name="submit" value="Login" /></li>
+        </ul>
+      </div>
+      <span id="js" class=""></span>
+    </nav>
+  </header>
+
+  <main>
+    <section class="one">
+      <div class="label">
+        <p><span>NEW</span> MONOGRAPH DASHBOARD </p>
+      </div>
+      <div class="info">
+        <h1>POWERFUL INSIGHTS INTO YOUR TEAM</h1>
+        <p>Project planning and time tracking for agile teams</p>
+      </div>
+      <div class="call-to-action">
+        <input type="submit" name="submit" value="SCHEDULE A DEMO" />
+        <span>TO SEE A PREVIEW</span>
+      </div>
+    </section>
+
+    <div class="image">
+      <picture>
+        <img alt="" src="./images/illustration-devices.svg">
+      </picture>
+    </div>
+  </main>
+  
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </p>
+  </footer>
+
+<script src="jquery-3.6.0.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
